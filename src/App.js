@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Article from "./components/articles";
+import LayOut from "./components/Layout";
+import { articles } from "./components/data";
+import "./App.css";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LayOut>
+      <div className="flex flex-col items-center">
+        <h1 className=" text-xl font-bold  text-indigo-800">
+          Articles Details
+        </h1>
+        {articles.map((article) => {
+          return (
+            <Article
+              key={article.id}
+              title={article.title}
+              body={article.body}
+            />
+          );
+        })}
+      </div>
+    </LayOut>
   );
 }
 
